@@ -1,0 +1,28 @@
+.AppointmentHeader-container{
+    margin-bottom: 100px;
+}
+.calendar-container h1, h6{
+    margin-bottom: 10px;
+}
+.calendar-container h6{
+    margin-bottom: 20px;
+    color: rgb(85, 85, 85);
+}
+@media(max-width:768px){
+    .AppointmentHeader-container{
+        margin-bottom: 330px;
+    }
+    .calendar-container{
+        text-align: center;
+        color: white;
+        margin-bottom: 50px;
+    }
+    .calendar-container h1, h6{
+        color: white !important;
+    }
+    .calendar-container .calenders{
+        margin-left: 15%;
+        margin-top: 50px;
+        
+    }
+}

@@ -1,0 +1,14 @@
+
+@media(max-width:768px){
+    .headerMain-dtl{
+        text-align: center;
+        color: white;
+    }
+    .headerMain-dtl h1{
+        color: rgb(255, 255, 255) !important;
+    }
+    .headerMain-dtl p{
+        color: rgb(170, 170, 170) !important;
+    }
+
+}
