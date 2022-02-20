@@ -1,0 +1,103 @@
+.gallery-container{
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(80, 80, 80);
+}
+.galleryContent{
+  height: 680px;
+  overflow: scroll;
+}
+
+.galleryContent::-webkit-scrollbar {
+  display: none;
+}
+.galleryContent {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.galleryBtn-container button{
+  padding: 10px 40px;
+  border: 1px solid #0fcfec;
+  background: transparent;
+  margin: 0 10px;
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(124, 124, 124);
+  position: relative;
+}
+.galleryBtn:hover{
+  border: none;
+  padding: 11px 41px;
+  color: #0fcfec;
+}
+.galleryBtn span{
+  display: block;
+  position: absolute;
+  background: #0fcfec;
+}
+
+.galleryBtn span:nth-child(1){
+		left: 0;
+    bottom: 0;
+		width: 2px;
+		height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+.galleryBtn:hover span:nth-child(1){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+}
+.galleryBtn span:nth-child(2){
+  /* margin-bottom: -.5px; */
+		left: 0;
+    bottom: 0;
+		width: 100%;
+		height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+.galleryBtn:hover span:nth-child(2){
+    transform: scaleX(1);
+    transform-origin: Left;
+    transition: transform 0.5s;
+}
+.galleryBtn span:nth-child(3){
+		right: 0;
+    bottom: 0;
+		width: 2px;
+		height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.galleryBtn:hover span:nth-child(3){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.galleryBtn span:nth-child(4){
+  margin-top: -1px;
+		top: 0;
+    left: 0;
+		width: 100%;
+		height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.galleryBtn:hover span:nth-child(4){
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+
+
+.surgeryGallery-container, .whitenGallery-container{
+  display: none;
+}

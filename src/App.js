@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React from "react";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,36 +11,42 @@ import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Login from "./components/Login/Login/Login";
 import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
 import Patients from "./components/Dashboard/Patients/Patients";
+import Register from './components/Login/Register/Register';
+import AuthProvider from './Contexts/AuthProvider/AuthProvider';
+import Gallery from './components/Home/Gallery/Gallery';
 
-export const UserContext = createContext();
+
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
     <div className="App">
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-    <Router>
-        <Switch>
-        <Route exact path="/">
-            <Home/>
-          </Route>
-          {/* <Route path="/appointment">
-            <Appointment/>
-          </Route> */}
-          <PrivateRoute path="/dashboard/appointment">
-            <Dashboard/>
-          </PrivateRoute>
-          <PrivateRoute path="/dashboard/patients">
-            <Patients/>
-          </PrivateRoute>
-          <PrivateRoute path="/appointment">
-            <Appointment/>
-          </PrivateRoute>
-          <Route path="/login">
-            <Login/>
-          </Route>
-        </Switch>
-    </Router>
-    </UserContext.Provider>
+    <AuthProvider>
+      <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/register">
+              <Register/>
+            </Route>
+            <Route path="/gallery">
+              <Gallery/>
+            </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard/>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard/patients">
+              <Patients/>
+            </PrivateRoute>
+            <PrivateRoute path="/appointment">
+              <Appointment/>
+            </PrivateRoute>
+          </Switch>
+      </Router>
+    </AuthProvider>
     </div>
   );
 }

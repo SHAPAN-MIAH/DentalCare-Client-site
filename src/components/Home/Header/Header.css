@@ -1,11 +1,11 @@
 .header-container{
-    height: 800px;
+    height: 850px;
     position: relative;
     background-image: url('../../../images/Mask\ Group\ 2.png');
     background-size: cover;
 }
 .header-container::after{
-    height: 700px;
+    height: 750px;
     content: '';
     position: absolute;
     top: 0;

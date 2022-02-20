@@ -1,0 +1,27 @@
+.navbar{
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(116, 116, 116);
+  margin-left: 15px;
+}
+#mainlogo{
+  font-size: 37px;
+  color: rgb(116, 116, 116);
+}
+.nav-menu {
+  padding: 0px 10px;
+}
+/* .nav-menu:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  width: 250px;
+}
+.dropdown-menu li {
+  font-size: 14px;
+}
+.dropdown-menu li span {
+  transition: all 0.5s;
+}
+.dropdown-menu li:hover span {
+  margin-left: 15px;
+} */

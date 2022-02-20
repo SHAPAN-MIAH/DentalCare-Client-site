@@ -1,6 +1,11 @@
 .footer-area{
-    background-image: url(../../../images/footer-bg.png);
+    background-image: linear-gradient(rgba(36, 41, 73, 0.568), rgba(36, 41, 73, 0.719)),
+    linear-gradient(rgba(36, 41, 73, 0.719) ,rgba(36, 41, 73, 0.719)),
+    url(../../../images/footer-bg.png);
     background-size: cover;
+    padding-bottom: 20px;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .footer-area li{

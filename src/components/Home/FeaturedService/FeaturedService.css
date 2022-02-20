@@ -1,0 +1,17 @@
+.featured-section{
+  font-family: 'Rajdhani', sans-serif;
+  color: rgb(80, 80, 80);
+}
+.featured-section p{
+  color: rgb(116, 116, 116);
+}
+.featured-section button{
+  padding: 15px 20px;
+  border: none;
+  margin-top: 5px;
+  background: rgb(19, 190, 190);
+  color: white
+}
+.featured-section button:hover{
+  background-color: #0fcfec;
+}

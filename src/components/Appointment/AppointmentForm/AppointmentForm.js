@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
+import useAuth from './../../../Hooks/useAuth';
+import './AppointmentForm.css'
 
 const customStyles = {
     content: {
@@ -9,7 +11,8 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        fontFamily: "Rajdhani"
     }
 };
 
@@ -19,11 +22,11 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     const { register, handleSubmit, errors } = useForm();
     // const { register, handleSubmit, watch, formState: { errors } } = useForm();
   
-    
     const onSubmit = data => {
         data.service = appointmentOn;
         data.date = date;
         data.created = new Date();
+        // data.created = date.toLocaleDateString();
         console.log(data);
 
         fetch('https://doctors-port.herokuapp.com/addAppointment', {
@@ -40,30 +43,31 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
         })
     }
 
+    const {user} = useAuth();
+
     return (
         <div>
-
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <h2 className="text-center text-brand">{appointmentOn}</h2>
+                <h2 className="text-center text-brand mt-4">{appointmentOn}</h2>
                 <p className="text-secondary text-center"><small>ON {date.toDateString()}</small></p>
-                <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
+                <form className="p-4" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
-                        <input type="text" {...register("name")} name="name" placeholder="Your Name" className="form-control" />
+                        <input type="text" {...register("name")} name="name" placeholder="Your Name" defaultValue={user.displayName} className="form-control shadow-none"  />
                     </div>
                     <div className="form-group">
-                        <input type="text" {...register("phone")} name="phone" placeholder="Phone Number" className="form-control" />
+                        <input type="text" {...register("email")} name="email" placeholder="Email" defaultValue={user.email} className="form-control shadow-none" />
                     </div>
                     <div className="form-group">
-                        <input type="text" {...register("email")} name="email" placeholder="Email" className="form-control" />
+                        <input type="text" {...register("phone")} name="phone" placeholder="Phone Number" className="form-control shadow-none" />
                     </div>
                     <div className="form-group row">
                         <div className="col-md-4">
-                            <select className="form-control" {...register("gender")} name="gender"  >
+                            <select className="form-control shadow-none" {...register("gender")} name="gender"  >
                                 <option disabled={true} value="Not set">Select Gender</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -72,15 +76,15 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                         </div>
 
                         <div className="col-md-4">
-                            <input className="form-control" {...register("age")} name="age" placeholder="Your Age" type="number" />
+                            <input className="form-control shadow-none" {...register("age")} name="age" placeholder="Your Age" type="number"/>
                         </div>
                         <div className="col-md-4">
-                            <input className="form-control" {...register("weight")} name="weight" placeholder="Weight" type="number" />
+                            <input className="form-control shadow-none" {...register("weight")} name="weight" placeholder="Weight" type="number" />
                         </div>
                     </div>
 
-                    <div className="form-group text-right">
-                        <button type="submit" className="btn btn-brand">Send</button>
+                    <div className="form-group">
+                        <button type="submit" className="booking-btn">Submit</button>
                     </div>
                 </form>
             </Modal>

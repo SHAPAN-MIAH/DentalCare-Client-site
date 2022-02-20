@@ -2,55 +2,23 @@ import React from 'react';
 import './Login.css'
 import firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from './firebaseConfig';
-import { useHistory, useLocation } from 'react-router-dom';
+import firebaseConfig from '../Firebase/firebaseConfig';
+import { useHistory, useLocation, Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { useState } from 'react/cjs/react.development';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { UserContext } from '../../../App';
-import LoginBg from '../../../images/Group 140.png';
+import LoginBg from '../../../images/flat-dental-care-concept-illustration_23-2148982240.jpg';
+import useAuth from './../../../Hooks/useAuth';
 
-
-if(!firebase.apps.length){
-    firebase.initializeApp(firebaseConfig);
-}else{
-    firebase.app();
-}
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [newUser, setNewUser] = useState(false);
-    const [user, setUser] = useState({
-      isSignedIn: false,
-      name: '',
-      email: '',
-      password: '',
-      error: '',
-      success: false,
-    });
+  const [loginData, setLoginData] = useState({});
+  const {user, loading, loginUser, googleSignIn, authError} = useAuth();
 
-    const history = useHistory();
-    const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
-
-    // google sign in method..................
-    const handelGoogleSignIn = () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          // console.log(result)
-            const {displayName, email} = result.user;
-            const signedInUser = {name: displayName, email};
-            setUser(signedInUser);
-            setLoggedInUser(signedInUser);
-            storeAuthToken();
-            history.replace(from);
-        }).catch((error) => {
-            console.log(error)
-        });
-    }
+  const history = useHistory();
+  const location = useLocation();
 
 
     // Email & password sign in method..................
@@ -65,121 +33,80 @@ const Login = () => {
           const passwordHasNumber = /\d{1}/.test(event.target.value);
           isFormValid = isPasswordValid && passwordHasNumber;
         }
-        if(event.target.name === "name") {
-          isFormValid = event.target.value.length > 8;
-          
-        }
+        
         if(isFormValid){
-          let newUserInfo = {...user};
+          let newUserInfo = {...loginData};
           newUserInfo[event.target.name] = event.target.value;
-          setUser(newUserInfo);
+          setLoginData(newUserInfo);
           
         }
       }
-
 
       const handelSubmit = (e) => {
-          console.log("clicked")
-        if(newUser && user.name && user.email && user.password){
-          firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-          .then((res) => {
-            const newUserInfo = {...user};
-            newUserInfo.error = "";
-            newUserInfo.success = true;
-            setUser(newUserInfo);
-            setLoggedInUser(newUserInfo);
-            updateUserName(user.name);
-            storeAuthToken();
-            history.replace(from);
-            console.log(res)
-           
-          })
-          .catch((error) => {
-            const newUserInfo = {...loggedInUser};
-            newUserInfo.error = error.message;
-            newUserInfo.success = false;
-            setLoggedInUser(newUserInfo)
-            console.log(error)
-          });
-  
-        }
-        if(!newUser && user.email && user.password){
-          firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-          .then((res) => {
-            const newUserInfo = {...user};
-            newUserInfo.error = "";
-            newUserInfo.success = true;
-            setUser(newUserInfo)
-            setLoggedInUser(newUserInfo)
-            updateUserName(user.name);
-            storeAuthToken();
-            history.replace(from);
-            console.log('sign in info', res.user);
-          })
-          .catch((error) => {
-            const newUserInfo = {...user};
-            newUserInfo.error = error.message;
-            newUserInfo.success = false;
-            setUser(newUserInfo)
-          });
-        }
+        loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault()
-    }
-
-    const storeAuthToken = () => {
-      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-        .then(function (idToken) {
-          sessionStorage.setItem('token', idToken);
-          history.replace(from);
-        }).catch(function (error) {
-          // Handle error
-        });
-    }
-
-    const updateUserName = name => {
-        var user = firebase.auth().currentUser;
-        user.updateProfile({
-          displayName: name
-        }).then(function() {
-          console.log('user name Update successful.') 
-        }).catch(function(error) {
-          console.log(error)
-        });
+      }
+      const handelGoogleSubmit = (e) => {
+        googleSignIn(location, history)
       }
 
+    // const storeAuthToken = () => {
+    //   firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+    //     .then(function (idToken) {
+    //       sessionStorage.setItem('token', idToken);
+    //       history.replace(from);
+    //     }).catch(function (error) {
+    //       // Handle error
+    //     });
+    // }
 
     return (
-        <div className="container login-container">
+        <div className='loginAndSignup'>
+          <div className="container login-container">
+            <h3>Login with your existing Email and Password</h3>
             <div className="row">
               <div className="col-md-6">
-                  <div className="formContainer">
-                      <h5> {newUser ? 'Create an account' : 'Login'}</h5>
-                      <form onSubmit={handelSubmit}>
-                          {newUser && <input  type="text" onBlur={handelBlur} name="name" placeholder="Your name" required/>}
-                          <br/>
-                          <input  type="email" onBlur={handelBlur} name="email"  placeholder="Your email" required/>
-                          <br/>
-                          <input  type="password" onBlur={handelBlur} name="password" placeholder="Password" required/>
-                          <br/>
-                          {/* <input  type="password" onBlur={handelBlur} name="confirmPassword" placeholder="Confirm Password" required/> */}
-                          {/* <br/> */}
-                          <input id="submitBtn" type="submit" value={newUser ? 'Create an account' : 'Login'}/>
-                      </form>
-
-                      <div className="loginToggle">
-                          <span>{newUser ?'Alrady have an account? ' : 'Need an account?  '}</span>
-                          <strong onClick={()=> setNewUser(!newUser)}>{newUser ? 'Login' : 'Create account'}</strong>
-                      </div>
-                  </div>
-                    <br/>
-                    <h5 className="or">Or</h5>
-                    <button onClick={handelGoogleSignIn} className="google-btn"><FontAwesomeIcon className="gIcon" icon={faGoogle} /> Continue With Google</button>
-            
+                <div className="formContainer" style={{paddingBottom: '20px'}}>
+                  {user?.email && <span style={{marginBottom: '20px', color: 'green'}}>User login successfully.</span>}
+                  {authError && <span style={{marginBottom: '20px', color: 'red'}}>{authError}</span>}
+                      <h3>Login</h3>
+                      {!loading && 
+                      <div>
+                        <form onSubmit={handelSubmit}>
+                            
+                            <input  type="email" onBlur={handelBlur} name="email"  placeholder="Email" required/>
+                            <br/>
+                            <input  type="password" onBlur={handelBlur} name="password" placeholder="Password" required/>
+                            <br/>
+                            <input  type="password" onBlur={handelBlur} name="confirmPassword" placeholder="Confirm Password" required/>
+                            <br/>
+                            <input id="submitBtn" type="submit" value='Login'/>
+                        </form>
+                        
+                          <div className="loginToggle">
+                            <span>Need an account?</span>
+                            <NavLink style={{textDecoration: 'none'}} to='/register'>
+                              <strong> Register</strong>
+                            </NavLink>
+                          </div>
+                      </div>}
+                      {loading && 
+                        <div class="spinner-border text-info" role="status">
+                          <span class="visually-hidden"></span>
+                        </div>
+                      }
+                </div>
+                <p className='mt-2'>or</p>
+                <button onClick={handelGoogleSubmit} className='googleSignInBtn' type=""><span className="google-icon"><FontAwesomeIcon icon={faGoogle} /></span> <span className='googleSignInBtn-content'>Sign In with Google</span></button>
               </div>
-              <div className="col-md-6">
-                  <img className="img-fluid loginImg" src={LoginBg} alt="" />
+              <div className="col-md-6 login-img text-left d-flex justify-content-center align-items-center">
+                <img className="img-fluid loginImg" src={LoginBg} alt="" />
               </div>
             </div>
+            <div className="copyRight text-center mt-4">
+              <p>Copyright {(new Date()).getFullYear()} All Rights Reserved</p>
+            </div>
+          </div>
         </div>
     );
 };

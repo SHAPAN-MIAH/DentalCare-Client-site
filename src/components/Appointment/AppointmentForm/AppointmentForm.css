@@ -1,0 +1,13 @@
+.booking_modal-container{
+  font-family: "Rajdhani", sans-serif;
+}
+.booking-btn{
+  border: none;
+  padding: 10px 60px;
+  color: #ffffff;
+  background: linear-gradient(75deg, #19d3ae8c,#0fceecab);
+  border-radius: 3px;
+}
+.booking-btn:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

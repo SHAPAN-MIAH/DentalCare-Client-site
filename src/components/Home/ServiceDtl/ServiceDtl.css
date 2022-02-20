@@ -1,0 +1,17 @@
+.serviceDtl-container-text{
+  font-family: 'Rajdhani', sans-serif;
+  color: rgb(116, 116, 116);
+  text-align: center;
+}
+.serviceDtl-container-text h4{
+  font-family: 'Rajdhani', sans-serif;
+  color: rgb(80, 80, 80);
+  font-weight: 600;
+}
+
+.serviceDtl-container img{
+ transition: all 1s;
+}
+.serviceDtl-container:hover  img{
+ transform: RotateY(360deg);
+}

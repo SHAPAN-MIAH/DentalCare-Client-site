@@ -1,3 +1,15 @@
+.testimonials{
+    background:
+	linear-gradient(#19d3ae73,#0fceec88),
+    linear-gradient(#19d3ae73,#0fceec88),	
+	url(../../../images/newbury_sedationdentistry-825x360.jpg) center center fixed;
+	background-attachment: fixed;
+	background-repeat:no-repeat;
+	background-size:cover;
+    height: 600px;
+    font-family: "Rajdhani", sans-serif;
+    padding-top: 50px;
+}
 .testimonials .container{
     background-image: url(../../../images/quote.png);
     background-repeat: no-repeat;
@@ -12,3 +24,4 @@
     background: transparent;
     border: 0;
 }
+

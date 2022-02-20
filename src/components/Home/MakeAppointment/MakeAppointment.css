@@ -1,12 +1,15 @@
 .make-appointment{
     background-image: url(../../../images/Mask\ Group\ 4.png);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     position: relative;
-    height: 420px;
+    height: 500px;
     width: 100%;
     background-position: center center;
-    margin: 100px 0px;
+    margin-bottom: 80px;
+    margin-top: 90px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .make-appointment::before{
@@ -21,11 +24,117 @@
 }
 
 .make-appointment img{
-    height: 550px;
-    transform: translateY(-130px);
-    margin-left: -50px;
+    height: 650px;
+    transform: translateY(-149px);
+    margin-left: -130px;
+}
+.make-appointment h4{
+    color: #0fcfec;
+    margin-top: -140px;
+}
+.make-appointment h1{
+    margin: 10px 0px;
+}
+.appointmentBtn{
+    border: 1px solid #0fcfec;
+    padding: 13px 50px;
+    background-color: #ffffff00;
+    color: #0fcfec;
+    margin-top: 20px;
+    position: relative;
+    /* overflow: hidden; */
+}
+.appointmentBtn:hover{
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    color: #ffffff;
 }
 
+.appointmentBtn span{
+  display: block;
+  position: absolute;
+  background: #0fcfec;
+}
+.appointmentBtn:hover span{
+  background: #ffffff;
+}
+
+.appointmentBtn span:nth-child(1){
+		left: 0;
+    bottom: 0;
+		width: 2px;
+		height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+.appointmentBtn:hover span:nth-child(1){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+}
+.appointmentBtn span:nth-child(2){
+  /* margin-bottom: -.5px; */
+		left: 0;
+    bottom: 0;
+		width: 100%;
+		height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+.appointmentBtn:hover span:nth-child(2){
+    transform: scaleX(1);
+    transform-origin: Left;
+    transition: transform 0.5s;
+}
+.appointmentBtn span:nth-child(3){
+		right: 0;
+    bottom: 0;
+		width: 2px;
+		height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.appointmentBtn:hover span:nth-child(3){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.appointmentBtn span:nth-child(4){
+  margin-top: -1px;
+		top: 0;
+    left: 0;
+		width: 100%;
+		height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.appointmentBtn:hover span:nth-child(4){
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+
+@media(max-width:768px){
+    .headerMain-dtl{
+        text-align: center;
+        color: white;
+    }
+    .headerMain-dtl h1{
+        color: rgb(255, 255, 255) !important;
+    }
+    .headerMain-dtl p{
+        color: rgb(170, 170, 170) !important;
+    }
+
+}
 @media(max-width:768px){
     .make-appointment{
         height: auto;

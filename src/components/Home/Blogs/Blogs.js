@@ -3,7 +3,7 @@ import BlogPost from '../BlogPost/BlogPost';
 import wilson from '../../../images/Ellipse 1.png';
 import Sinthia from '../../../images/Ellipse 2.png';
 import './Blogs.css'
-
+import borderBrige from '../../../images/title-icon.png'
 
 const blogData = [
     {
@@ -31,16 +31,18 @@ const blogData = [
 
 const Blogs = () => {
     return (
-       <section className="blogs ">
-           <div className="container">
-               <div className="section-header text-center">
-                    <h5 style={{color: 'rgb(19, 190, 190)'}} className="text-uppercase">our blog</h5>
-                    <h1 style={{color: '#3A4256'}}>From Our Blog News</h1>
+       <section className="blogs mt-5 pb-5">
+           <div className="container pt-1">
+               <div className="text-center mt-5 mb-5">
+                  <h2>RECENT NEWS</h2>
+                  <img src={borderBrige} alt=""/>
+                  <br/>
+                  <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem voluptatem obcaecati!</small>
                </div>
-               <div className="card-deck mt-5">
-                    {
-                        blogData.map(blog => <BlogPost blog={blog} key={blog.title}/>)
-                    }
+               <div className="card-deck mt-5 mb-5">
+                {
+                  blogData.map(blog => <BlogPost blog={blog} key={blog.title}/>)
+                }
                </div>
            </div>
        </section>

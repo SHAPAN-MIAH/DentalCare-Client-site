@@ -1,0 +1,94 @@
+.priceDetail-content{
+  border: 1px solid #0fcfec;
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(80, 80, 80);
+  padding: 50px 18px;
+}
+
+.priceDetail-text p{
+  color: rgb(116, 116, 116);
+}
+.priceBtn{
+  padding: 10px 30px;
+  border: 1px solid #0fcfec;
+  margin-top: 20px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  /* overflow: hidden; */
+  position: relative;
+  color: rgb(116, 116, 116);
+}
+.priceBtn:hover{
+  border: none;
+  padding: 11px 31px;
+  color: #0fcfec;
+}
+.priceBtn span{
+  display: block;
+  position: absolute;
+  background: #0fcfec;
+}
+
+.priceBtn span:nth-child(1){
+		left: 0;
+    bottom: 0;
+		width: 2px;
+		height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+.priceBtn:hover span:nth-child(1){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+}
+.priceBtn span:nth-child(2){
+  /* margin-bottom: -.5px; */
+		left: 0;
+    bottom: 0;
+		width: 100%;
+		height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+.priceBtn:hover span:nth-child(2){
+    transform: scaleX(1);
+    transform-origin: Left;
+    transition: transform 0.5s;
+}
+.priceBtn span:nth-child(3){
+		right: 0;
+    bottom: 0;
+		width: 2px;
+		height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.priceBtn:hover span:nth-child(3){
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.priceBtn span:nth-child(4){
+  margin-top: -1px;
+		top: 0;
+    left: 0;
+		width: 100%;
+		height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}
+.priceBtn:hover span:nth-child(4){
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+    transition-delay: 0.4s;
+}

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faSignOutAlt, faCalendar, faGripHorizontal, faUsers, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 // import {  faFileAlt } from '@fortawesome/free-regular-svg-icons'
 
+
 const Sidebar = () => {
     return (
         <div className="sidebar  flex-column justify-content-between py-5 px-4">
@@ -35,6 +36,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
             </ul>
+
             <div>
                 <Link to="/" className="text-white log-out">
                     <FontAwesomeIcon icon={faSignOutAlt} /><span>Logout</span>

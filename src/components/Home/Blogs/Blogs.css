@@ -1,5 +1,6 @@
 .blogs{
-    margin: 100px 0px;
+    font-family: "Rajdhani", sans-serif;
+    color: rgb(80, 80, 80);
 }
 .blogs .card{
     border: 0;

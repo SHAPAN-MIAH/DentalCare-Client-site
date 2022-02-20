@@ -1,4 +1,99 @@
+.main{
+    font-family: "Rajdhani", sans-serif;
+    color: rgb(80, 80, 80);
+}
+.headerMain-dtl h1{
+    font-size: 45px;
+    font-family: "Rajdhani", sans-serif;
+    color: rgb(105, 105, 105);
+}
+.headerMain-dtl p{
+    font-family: "Rajdhani", sans-serif;
+    color: rgb(126, 126, 126);
+}
+.getAppointmentBtn{
+    border: none;
+    background-color: rgb(19, 190, 190);
+    padding: 13px 50px;
+    color: rgb(255, 255, 255);
+    position: relative;
+	overflow: hidden;
+	
+}
+.getAppointmentBtn:hover{
+  background-color: #0fcfec;
+}
 
+.getAppointmentBtn:hover span:nth-child(1){
+	position: absolute;
+    top: 0;
+		left: 0;
+		width: 100%;
+		height: 2.1px;
+		background: linear-gradient(to right, #19d3ae8c, #eb2f166c);
+		animation: animate1 2s linear infinite;
+}
+@keyframes animate1{
+	0%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(100%);
+	}
+}
+.getAppointmentBtn:hover span:nth-child(2){
+	position: absolute;
+    top: 0;
+		right: 0;
+		width: 2.1px;
+		height: 100%;
+		background: linear-gradient(to bottom, #19d3ae8c, #eb2f166c);
+		animation: animate2 2s linear infinite;
+		animation-delay: 1s;
+}
+@keyframes animate2{
+	0%{
+		transform: translateY(-100%);
+	}
+	100%{
+		transform: translateY(100%);
+	}
+}
+.getAppointmentBtn:hover span:nth-child(3){
+	position: absolute;
+    bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(to left, #19d3ae8c, #eb2f166c);
+		animation: animate3 2s linear infinite;
+}
+@keyframes animate3{
+	0%{
+		transform: translateX(100%);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}
+.getAppointmentBtn:hover span:nth-child(4){
+	position: absolute;
+    top: 0;
+		left: 0;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(to top, #19d3ae8c, #eb2f166c);
+		animation: animate4 2s linear infinite;
+		animation-delay: 1s;
+}
+@keyframes animate4{
+	0%{
+		transform: translateY(100%);
+	}
+	100%{
+		transform: translateY(-100%);
+	}
+}
 @media(max-width:768px){
     .headerMain-dtl{
         text-align: center;

@@ -3,6 +3,7 @@
     position: relative;
     background-image: url('../../../images/Mask\ Group\ 2.png');
     background-size: cover;
+    font-family: "Rajdhani", sans-serif;
 }
 .Appointment-container::after{
     height: 650px;

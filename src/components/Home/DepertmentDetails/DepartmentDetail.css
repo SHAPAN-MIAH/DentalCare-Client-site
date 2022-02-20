@@ -1,0 +1,44 @@
+.depDetail-content{
+  font-family: 'Rajdhani', sans-serif;
+  color: rgb(80, 80, 80);
+  margin-bottom: 30px;
+  position: relative;
+}
+.depDetail-content:hover .depDetail-text{
+  display: block;
+  background-image: linear-gradient(75deg, #19d3ae8c,#0fceecab);
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}
+
+.depDetail-text{
+  position: absolute;
+  display: none;
+  top: 0;
+  text-align: center;
+}
+.depDetail-content img{
+  width: 100%;
+  transition: all .5s;
+}
+.depDetail-content h5{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+.depDetail-content p{
+  font-size: 14px;
+  width: 85%;
+  margin: auto;
+}
+.depDetail-content button{
+  padding: 10px 40px;
+  border: 1px solid #ffffff;
+  background-color: #0e1a4200;
+  color: #ffffff;
+  margin-top: 15px;
+}
+.depDetail-content:hover .depDetail-content img{
+  transform: scale(1.1);
+}

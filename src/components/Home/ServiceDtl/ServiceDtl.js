@@ -1,14 +1,20 @@
 import React from 'react';
+import './ServiceDtl.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTooth } from '@fortawesome/free-solid-svg-icons';
 
 const ServiceDtl = (props) => {
-    const {title, img} = props.service;
+    const {title, img, dec} = props.service;
     return (
-        <div className="col-md-4 text-center">
-            <div style={{height: '60px'}}>
-            <img style={{width: '50px'}} src={img} alt=""/>
+        <div className="col-md-4 text-center mb-4 serviceDtl-container">
+            <div style={{height: 'auto'}}>
+            <img style={{width: '40px'}} src={img} alt=""/>
+            {/* <FontAwesomeIcon icon={faTooth} /> */}
             </div>
-            <h5 className="pb-2 pt-2">{title}</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, vitae!</p>
+            <div className='ml-3 serviceDtl-container-text'>
+            <h4 className="pb-2 pt-2">{title}</h4>
+            <p>{dec}</p>
+            </div>
         </div>
     );
 };

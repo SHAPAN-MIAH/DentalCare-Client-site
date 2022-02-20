@@ -1,0 +1,8 @@
+.galleryImg{
+  height: 240px;
+  margin-bottom: 27px;
+  overflow: hidden;
+}
+.galleryImg img{
+  height: auto;
+}

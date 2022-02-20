@@ -46,7 +46,7 @@ const bookingData = [
 ]
 const BookAppointment = ({date}) => {
     return (
-        <section>
+        <section className='mb-5'>
             <h2 className="text-center text-brand mb-5">Available Appointments on {date.toDateString()}</h2>
             <div className="row">
                 {
