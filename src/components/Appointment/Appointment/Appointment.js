@@ -6,16 +6,16 @@ import './Appointment.css'
 import Nav from './../../Shared/Nav/Nav';
 
 const Appointment = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [date, setDate] = useState(new Date());
     const handleDateChange = date => {
-        setSelectedDate(date);
+        setDate(date);
     }
     return (
         <div className="Appointment-container">
             <Nav/>
             <AppointmentHeader handleDateChange={handleDateChange}></AppointmentHeader>
             <div className="container">
-            <BookAppointment date={selectedDate}></BookAppointment>
+            <BookAppointment date={date}></BookAppointment>
             </div>
             <Footer></Footer>
         </div>

@@ -24,9 +24,8 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
   
     const onSubmit = data => {
         data.service = appointmentOn;
-        data.date = date;
+        data.date = date.toLocaleDateString();
         data.created = new Date();
-        // data.created = date.toLocaleDateString();
         console.log(data);
 
         fetch('https://doctors-port.herokuapp.com/addAppointment', {
