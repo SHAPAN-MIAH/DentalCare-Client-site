@@ -1,0 +1,130 @@
+.review-container{
+  font-family: 'Rajdhani', sans-serif;
+  color: rgb(100, 100, 100);
+  margin-top: 2vh;
+  text-align: center;
+}
+.review-container form{
+  width: 550px;
+  margin: auto;
+  background-image: linear-gradient(90deg, #0fceec, #19d3aede);
+  padding: 40px;
+}
+.review-container input{
+  width: 450px;
+  border: .1px solid gainsboro;
+  padding:  13px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+.review-container textarea{
+  width: 450px;
+  border: .1px solid gainsboro;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin-left: 10px;
+}
+
+.reviewBtn{
+  border: none;
+  background-image: linear-gradient(75deg, #0fceec,#19d3aede);
+  padding: 13px 200px;
+  color: #ffffff;
+  position: relative;
+	overflow: hidden;
+}
+.reviewBtn:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-image: linear-gradient(75deg, #19d3aede, #0fceec);
+}
+
+.reviewBtn span:nth-child(1){
+	position: absolute;
+    top: 0;
+		left: 0;
+		width: 100%;
+		height: 2.1px;
+		background: linear-gradient(to right, #19d3ae8c, #eb2f166c);
+		animation: animate1 2s linear infinite;
+}
+@keyframes animate1{
+	0%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(100%);
+	}
+}
+.reviewBtn span:nth-child(2){
+	position: absolute;
+    top: 0;
+		right: 0;
+		width: 2.1px;
+		height: 100%;
+		background: linear-gradient(to bottom, #19d3ae8c, #eb2f166c);
+		animation: animate2 2s linear infinite;
+		animation-delay: 1s;
+}
+@keyframes animate2{
+	0%{
+		transform: translateY(-100%);
+	}
+	100%{
+		transform: translateY(100%);
+	}
+}
+.reviewBtn span:nth-child(3){
+	position: absolute;
+    bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(to left, #19d3ae8c, #eb2f166c);
+		animation: animate3 2s linear infinite;
+}
+@keyframes animate3{
+	0%{
+		transform: translateX(100%);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}
+.reviewBtn span:nth-child(4){
+	position: absolute;
+    top: 0;
+		left: 0;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(to top, #19d3ae8c, #eb2f166c);
+		animation: animate4 2s linear infinite;
+		animation-delay: 1s;
+}
+@keyframes animate4{
+	0%{
+		transform: translateY(100%);
+	}
+	100%{
+		transform: translateY(-100%);
+	}
+}
+
+@media(max-width:768px){
+  .review-container{
+    margin-top: 20px;
+  }
+  .review-container form{
+    width: auto;
+    margin: auto;
+  }
+  .review-container input{
+    width: 330px;
+  }
+  .review-container textarea{
+    width: 330px;
+    margin-left: 7px;
+  }
+  .reviewBtn{
+    padding: 13px 140px;
+  }
+}

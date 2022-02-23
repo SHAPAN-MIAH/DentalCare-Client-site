@@ -1,0 +1,25 @@
+.appointmentDateTitle-container{
+  width: 900px;
+  padding: 60px 0px;
+  padding-bottom: 40px;
+  /* background: linear-gradient(90deg, #0fceecb0, #19d3aec0); */
+  margin: auto;
+  color: #ffffff;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  background:
+	linear-gradient(#19d3ae73,#0fceec88),
+    linear-gradient(#19d3ae73,#0fceec88),	
+	url(../../../images/Shutterstock_94074997_1300x800_o.jpg) center center fixed;
+	background-attachment: fixed;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+@media(max-width:768px){
+  .appointmentDateTitle-container{
+    width: auto;
+  }
+}

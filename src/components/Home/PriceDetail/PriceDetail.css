@@ -92,3 +92,8 @@
     transition: transform 0.5s;
     transition-delay: 0.4s;
 }
+@media(max-width:768px){
+  .priceDetail-content{
+      margin-bottom: 25px;
+  }
+}

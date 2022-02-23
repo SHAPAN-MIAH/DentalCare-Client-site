@@ -16,6 +16,7 @@ import img40 from '../../../images/Happy-Girl-at-Dentist-920x614.jpg'
 import img41 from '../../../images/How-Long-Does-it-Take-to-Become-a-Dentist-Your-Simple-Guide.jpg'
 import img48 from '../../../images/Shutterstock_94074997_1300x800_o.jpg'
 import img49 from '../../../images/t1gpdn.jpg'
+import img52 from '../../../images/vecteezy_young-woman-having-teeth-examined-by-dentist-in-dental_5751756_881.jpg'
 import SurgeryGalleryDetail from './SurgeryGalleryDetail';
 
 const SurgeryGallery = () => {
@@ -56,13 +57,13 @@ const SurgeryGallery = () => {
     {
       img:img24
     },
-    
+    {
+      img:img52
+    },
     {
       img:img31
     },
-    {
-      img:img38
-    },
+    
     {
       img:img40
     },
@@ -70,11 +71,15 @@ const SurgeryGallery = () => {
       img:img41
     },
     {
+      img:img38
+    },
+    {
       img:img48
     },
     {
       img:img19
     },
+    
   ]
   return (
     <>

@@ -22,14 +22,21 @@ import {
 import DashboardHome from './DashboardHome/DashboardHome';
 import logo from "../../../images/0001036-dental-logo-maker-dentist-Logo-02.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faUsers, faCog, faUserPlus, faArrowAltCircleDown, faHome, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faUsers, faCog, faUserPlus, faArrowAltCircleDown, faHome, faFileAlt, faCalendarCheck, faUser, faFileCode, faFileArchive, faFileCsv, faComment } from '@fortawesome/free-solid-svg-icons';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import useAuth from './../../../Hooks/useAuth';
+import AdminRoute from './../../Login/AdminRoute/AdminRoute';
+import AddDoctor from './AddDoctor/AddDoctor';
+import Review from './Review/Review';
 
-const drawerWidth = 260;
+const drawerWidth = 270;
 
 const Dashboard = (props) => {
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const {admin, user, logOut} = useAuth();
+  console.log(admin)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -44,25 +51,30 @@ const Dashboard = (props) => {
 
       <Divider />
       <div className='ml-5 mt-4'>
-        <Link className='text-white routeLink' to='/'><FontAwesomeIcon icon={faHome} />  Home</Link>
+        <Link className='text-white routeLink' to='/'><FontAwesomeIcon className='dashboardIcons' icon={faHome} />  Home</Link>
         <br/>
         <br/>
-        <Link className='text-white routeLink' to='/appointment'><FontAwesomeIcon icon={faFileAlt} />  Appointment</Link>
+        <Link className='text-white routeLink' to='/appointment'><FontAwesomeIcon className='dashboardIcons' icon={faCalendarCheck} /> Get Appointment</Link>
         <br/>
         <br/>
-        <Link className='text-white routeLink' to={`${url}`}><FontAwesomeIcon icon={faCalendar} />  Appointment List</Link>
+        <Link className='text-white routeLink' to={`${url}`}><FontAwesomeIcon className='dashboardIcons' icon={faCalendar} />  Appointment List</Link>
         <br/>
         <br/>
-        <Link className='text-white routeLink' to={`${url}/makeAdmin`}><FontAwesomeIcon icon={faUsers} /> Make an Admin</Link>
+        <Link className='text-white routeLink' to={`${url}/review`}><FontAwesomeIcon className='dashboardIcons' icon={faComment} />  Give Review</Link>
         <br/>
         <br/>
-        <Link className='text-white routeLink' to={`${url}/addDoctor`}><FontAwesomeIcon icon={faUserPlus} /> Add Doctor</Link>
-        <br/>
-        <br/>
-        <Link className='text-white routeLink' to={`${url}/Setting`}><FontAwesomeIcon icon={faCog} /> Setting</Link>
-        <br/>
-        <br/>
-        <Link className='text-white routeLink' to={`${url}/Setting`}><FontAwesomeIcon icon={faArrowAltCircleDown} /> LogOut</Link>
+        {admin &&
+          <box>
+            <Link className='text-white routeLink' to={`${url}/makeAdmin`}><FontAwesomeIcon className='dashboardIcons' icon={faUserPlus} /> Make an Admin</Link>
+            <br/>
+            <br/>
+            <Link className='text-white routeLink' to={`${url}/addDoctor`}><FontAwesomeIcon className='dashboardIcons' icon={faUsers} /> Add Doctor</Link>
+            <br/>
+            <br/>
+          </box>
+          
+        }
+        <Link className='text-white routeLink' to='' onClick={logOut}><FontAwesomeIcon className='dashboardIcons' icon={faArrowAltCircleDown} /> LogOut</Link>
       </div>
         
     </div>
@@ -93,7 +105,10 @@ const Dashboard = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography  variant="h6" noWrap component="div">
-                        <h3 className='DashboardTitle mt-2 ml-3'>Dashboard</h3>
+                        <div className='d-flex'>
+                        <h3 className='DashboardTitle mt-2 ml-3'><FontAwesomeIcon className='dashboardIcons' icon={faUser} /> {user.displayName}</h3>
+                        {admin ? <span style={{margin: '10px' ,color: 'rgb(240, 240, 240)'}}> - Admin</span> : <span style={{margin: '10px' ,color: 'rgb(240, 240, 240)'}}> - User</span>}
+                        </div>
                     </Typography>
                     </Toolbar>
                 </AppBar>
@@ -139,9 +154,15 @@ const Dashboard = (props) => {
                       <Route exact path={path}>
                         <DashboardHome/>
                       </Route>
-                      <Route path={`${path}/makeAdmin`}>
-                        admin
+                      <Route exact path={`${path}/review`}>
+                        <Review/>
                       </Route>
+                      <AdminRoute path={`${path}/makeAdmin`}>
+                        <MakeAdmin/>
+                      </AdminRoute>
+                      <AdminRoute path={`${path}/addDoctor`}>
+                        <AddDoctor/>
+                      </AdminRoute>
                     </Switch>
                 </Box>
             </Box>

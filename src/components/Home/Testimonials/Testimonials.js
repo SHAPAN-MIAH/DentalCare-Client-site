@@ -5,93 +5,46 @@ import ema from '../../../images/Ellipse 2.png';
 import aliza from '../../../images/Ellipse 3.png';
 import Testimonial from '../Testimonial/Testimonial';
 import Carousel from 'react-grid-carousel'
-import { useState} from 'react';
-
-
-
-const testimonialData = [
-    {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-        name : 'Wilson Harry',
-        from : 'California',
-        img : wilson
-    },
-    {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-        name : 'Ema Gomez',
-        from : 'California',
-        img : ema
-    },
-    {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-        name : 'Aliza Farari',
-        from : 'California',
-        img : aliza
-    },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-    // {
-    //     quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-    //     name : 'Aliza Farari',
-    //     from : 'California',
-    //     img : aliza
-    // },
-]
+import { useState, useEffect } from 'react';
 
 
 const Testimonials = () => {
+
+    const [testimonialsData, setTestimonialsData] = useState()
+
+    useEffect(()=> {
+        fetch('https://doctors-port.herokuapp.com/review')
+        .then(res=> res.json())
+        .then(data => setTestimonialsData(data))
+
+    }, [])
  
     return (
        <section className="testimonials mt-5">
            <div className="container">
-               <div className="section-header">
-                   <h4 style={{color: '#ffffff'}} className="text-uppercase">Testimonial</h4>
-                   <h2 style={{color: '#3A4256'}}>What Our Patients <br/> Says </h2>
-               </div>
-               <div className="card-deck mt-5">
-                    {
-                        testimonialData.map(testimonial => <Testimonial testimonial={testimonial} key={testimonial.name}/>)
-                      }
+              <div className="section-header">
+                <h4 style={{color: '#ffffff'}} className="text-uppercase">Testimonial</h4>
+                <h2 style={{color: '#3A4256'}}>What Our Patients <br/> Says </h2>
+              </div>
+                <div className="row mt-5">
+                    <Carousel cols={3} rows={1} gap={28} showDots loop>
+                      {testimonialsData?.map((review, i) => (
+                        <Carousel.Item key={i}>
+                          <div className="card shadow-sm" style={{color: 'rgb(100, 100, 100)'}}>
+                            <div className="card-body">
+                              <p className="card-text">{review.comments}</p>
+                            </div>
+                            <div className="card-footer d-flex  align-items-center mb-3">
+                              <img className="mx-3" src={review.imageUrl} alt="" width="60"/>
+                              <div>
+                                <h6 style={{color: 'rgb(19, 190, 190)'}}>{review.name}</h6>
+                                <p className="m-0">{review.location}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Carousel.Item>
+                      ))}
+                    </Carousel>
                 </div>
            </div>
        </section>

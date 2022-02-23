@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { useHistory, useLocation, NavLink } from 'react-router-dom';
 import LoginBg from '../../../images/flat-dental-care-concept-illustration_23-2148982240.jpg';
 import useAuth from './../../../Hooks/useAuth';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 
 const Register = () => {
@@ -22,10 +20,11 @@ const Register = () => {
       isFormValid = /\S+@\S+\.\S+/.test(event.target.value);
       
     }
-    if(event.target.name === "password"){
+    if(event.target.name === "password" && "confirmPassword"){
       const isPasswordValid = event.target.value.length > 6;
       const passwordHasNumber = /\d{1}/.test(event.target.value);
-      isFormValid = isPasswordValid && passwordHasNumber;
+      const passValid = isPasswordValid && passwordHasNumber;
+      isFormValid = passValid;
     }
     if(event.target.name === "name") {
       isFormValid = event.target.value.length > 8;
@@ -39,7 +38,8 @@ const Register = () => {
     }
   }
 
-  const handelSubmit = (e) => {
+
+  const handelSubmit = (e) => {    
     registerUser(registerData.email, registerData.password, registerData.name, location, history);
     e.preventDefault()
   }
@@ -67,8 +67,9 @@ const Register = () => {
                             <br/>
                             <input  type="password" onBlur={handelBlur} name="password" placeholder="Password" required/>
                             <br/>
-                            <input  type="password" onBlur={handelBlur} name="confirmPassword" placeholder="Confirm Password" required/>
+                            <input  type="password" onBlur={handelBlur} name="confirmPassword"  placeholder="Confirm Password" required/>
                             <br/>
+                            
                             <input style={{marginBottom: '30px'}} id="submitBtn" type="submit" value='Create an account'/>
                         </form>
                         

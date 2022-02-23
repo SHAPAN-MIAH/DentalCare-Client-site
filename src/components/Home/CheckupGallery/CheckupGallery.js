@@ -14,8 +14,13 @@ import img32 from '../../../images/CD-Cosmetic-e1534392784958.jpg'
 import img4 from '../../../images/9.jpg'
 import img9 from '../../../images/Top-Dentist-Opener.png'
 import img39 from '../../../images/shutterstock_358283252.jpg'
-
+import img49 from '../../../images/little-beautiful-girl-dentist-looking-smiling_158595-7740.jpg'
+import img50 from '../../../images/vecteezy_young-woman-having-teeth-examined-by-dentist-in-dental_5557869_421.jpg'
 import CheckupGalleryDetails from './CheckupGalleryDetails';
+// import 'photoswipe/dist/photoswipe.css'
+// import 'photoswipe/dist/default-skin/default-skin.css'
+// import { Gallery, Item } from 'react-photoswipe-gallery'
+
 
 const CheckupGallery = () => {
   const checkupData = [
@@ -68,6 +73,12 @@ const CheckupGallery = () => {
     {
       img:img39
     },
+    {
+      img:img49
+    },
+    {
+      img:img50
+    },
     
   ]
   return (
@@ -76,7 +87,32 @@ const CheckupGallery = () => {
         {
           checkupData.map(data => <CheckupGalleryDetails key={data} data={data}></CheckupGalleryDetails>)
         }
-    </div> 
+      </div> 
+
+
+    {/* <Gallery>
+    <Item
+      original='img50'
+      thumbnail="img50"
+      width="300px"
+      height="100"
+    >
+      {({ ref, open }) => (
+        <img ref={ref} onClick={open} src={img50} />
+        
+      )}
+    </Item>
+    <Item
+      original="https://placekitten.com/1024/768?image=2"
+      thumbnail="https://placekitten.com/80/60?image=2"
+      width="1024"
+      height="768"
+    >
+      {({ ref, open }) => (
+        <img ref={ref} onClick={open} src="https://placekitten.com/80/60?image=2" />
+      )}
+    </Item>
+  </Gallery> */}
     </>
   );
 };

@@ -1,14 +1,9 @@
 import React from 'react';
 import './Login.css'
-import firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from '../Firebase/firebaseConfig';
-import { useHistory, useLocation, Link, NavLink } from 'react-router-dom';
-import { useContext } from 'react';
+import { useHistory, useLocation, NavLink } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { UserContext } from '../../../App';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import LoginBg from '../../../images/flat-dental-care-concept-illustration_23-2148982240.jpg';
 import useAuth from './../../../Hooks/useAuth';
 
@@ -49,16 +44,6 @@ const Login = () => {
       const handelGoogleSubmit = (e) => {
         googleSignIn(location, history)
       }
-
-    // const storeAuthToken = () => {
-    //   firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-    //     .then(function (idToken) {
-    //       sessionStorage.setItem('token', idToken);
-    //       history.replace(from);
-    //     }).catch(function (error) {
-    //       // Handle error
-    //     });
-    // }
 
     return (
         <div className='loginAndSignup'>

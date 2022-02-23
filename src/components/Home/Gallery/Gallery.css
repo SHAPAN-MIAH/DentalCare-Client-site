@@ -101,3 +101,12 @@
 .surgeryGallery-container, .whitenGallery-container{
   display: none;
 }
+
+@media(max-width:768px){
+  .galleryBtn-container{
+      width: auto;
+  }
+  .galleryBtn-container button{
+    padding: 10px 20px;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './PriceDetail.css'
+import { Link } from 'react-router-dom';
 
 const PriceDetail = (props) => {
   const {title, img, price, dec} = props.price
@@ -14,13 +15,16 @@ const PriceDetail = (props) => {
             <h4 className='mt-5'>{title}</h4>
             <h5>${price}</h5>
             <p>{dec}</p>
-            <button className='priceBtn' type="">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Make an Appointment
+            <Link to="/appointment">
+              <button className='priceBtn' type="">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Make an Appointment
               </button>
+            </Link>
+           
           </div>
         </div>
       </div> 

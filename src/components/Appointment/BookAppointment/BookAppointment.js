@@ -1,10 +1,13 @@
 import React from 'react';
 import BookingCard from '../BookingCard/BookingCard';
+import './BookAppointment.css'
+import borderBrige from '../../../images/title-icon.png'
+
 const bookingData = [
     {
         _id: '5e8df50be6e8231764dc23de',
         id: 1,
-        subject: 'Teeth Orthodontics',
+        subject: 'Dental Implants',
         visitingHour: '8:00 AM - 9:00 AM',
         totalSpace: 10
     },
@@ -26,29 +29,34 @@ const bookingData = [
         _id: '5e8df63be6e8231764dc23e1',
         id: 4,
         subject: 'Cavity Protection',
-        visitingHour: '7:00 AM - 8:30 AM',
+        visitingHour: '11:00 AM - 12:30 PM',
         totalSpace: 10
     },
     {
         _id: '5e8df68de6e8231764dc23e2',
         id: 5,
-        subject: 'Teeth Orthodontics',
-        visitingHour: '8:00 AM - 9:00 AM',
+        subject: 'Dental Root canal',
+        visitingHour: '10:00 AM - 11:00 AM',
         totalSpace: 10
     },
     {
         _id: '5e8df6a0e6e8231764dc23e3',
         id: 6,
         subject: 'Teeth Orthodontics',
-        visitingHour: '8:00 AM - 9:00 AM',
+        visitingHour: '9:00 AM - 10:00 AM',
         totalSpace: 10
     }
 ]
 const BookAppointment = ({date}) => {
     return (
         <section className='mb-5'>
-            <h2 className="text-center text-brand mb-5">Available Appointments on {date.toDateString()}</h2>
-            <div className="row">
+            <div className='appointmentDateTitle-container text-center mt-5'>
+            <h2 className="text-center">Available Appointments on {date.toDateString()}</h2>
+                <p>8:00 AM - 8:00 PM</p>
+            </div>
+            <br/>
+            <img className='m-auto d-flex justify-content-center' src={borderBrige} alt=""/>
+            <div className="row mt-5">
                 {
                     bookingData.map(booking => <BookingCard booking={booking} date={date} key={booking.id}></BookingCard>)
                 }

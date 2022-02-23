@@ -137,7 +137,11 @@
 }
 @media(max-width:768px){
     .make-appointment{
-        height: auto;
         margin-top: 50px;
+        height: 600px;
+        overflow: hidden;
+    }
+    .make-appointment h4{
+        margin-top: 100px;
     }
 }

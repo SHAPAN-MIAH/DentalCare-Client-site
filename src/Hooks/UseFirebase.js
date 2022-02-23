@@ -1,6 +1,17 @@
 import InitFirebase from './../components/Login/Firebase/FirebaseInit';
 import { useState, useEffect } from 'react';
-import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword , signInWithPopup, onAuthStateChanged , GoogleAuthProvider, updateProfile, signOut } from "firebase/auth";
+import { 
+  getAuth ,
+  createUserWithEmailAndPassword , 
+  signInWithEmailAndPassword , 
+  signInWithPopup, 
+  onAuthStateChanged ,
+  GoogleAuthProvider, 
+  updateProfile, 
+  getIdToken, 
+  signOut 
+} from "firebase/auth";
+import axios from 'axios';
 
 
 // firebase init app
@@ -9,7 +20,9 @@ InitFirebase();
 const UseFirebase = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  const [authError, setAuthError] = useState('')
+  const [authError, setAuthError] = useState('');
+  const [admin, setAdmin] = useState(false);
+  const [authToken, setAuthToken] = useState('')
 
   const auth = getAuth();
   const GoogleProvider = new GoogleAuthProvider()
@@ -22,7 +35,8 @@ const UseFirebase = () => {
       setAuthError('')
       const newUser = {email, displayName: name};
       setUser(newUser);
-
+      // save user in to Db
+      saveUserInDB(email, name, 'POST');
       // send name after creation
       updateProfile(auth.currentUser, {
         displayName: name
@@ -68,9 +82,10 @@ const UseFirebase = () => {
     signInWithPopup(auth, GoogleProvider) 
     .then((result) => {
       const user = result.user
+      saveUserInDB(user.email, user.displayName, 'PUT')
+      setAuthError('')
       const destination = location?.state?.from || '/';
       history.replace(destination)
-      setAuthError('')
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -90,11 +105,28 @@ const UseFirebase = () => {
     .finally(() => setLoading(false));
   }
 
+  // save user data in db
+  const saveUserInDB = (email, displayName, method) => {
+    const user = {email, displayName};
+    fetch('https://doctors-port.herokuapp.com/AddUsers', {
+      method: method,
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(res => console.log(res))
+  }
+
   // observe user state
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user)
+        setUser(user);
+        getIdToken(user)
+        .then(idToken => {
+          setAuthToken(idToken)
+        })
       } else {
         setUser({})
       }
@@ -103,6 +135,13 @@ const UseFirebase = () => {
     return () => unSubscribe;
   }, [])
 
+  useEffect(() => {
+    fetch(`https://doctors-port.herokuapp.com/AddUsers/admin/${user.email}`)
+    .then(res => res.json())
+    .then(data => setAdmin(data.admin))
+
+  }, [user.email]);
+
 
   return {
     user,
@@ -110,8 +149,10 @@ const UseFirebase = () => {
     registerUser,
     loginUser,
     googleSignIn,
+    admin,
     logOut,
-    authError
+    authError,
+    authToken
   }
 };
 

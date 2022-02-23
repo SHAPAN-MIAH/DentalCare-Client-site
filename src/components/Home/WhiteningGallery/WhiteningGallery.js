@@ -16,6 +16,7 @@ import img36 from '../../../images/endodontic-endodontist-patient-trust-dental-d
 import img37 from '../../../images/female-dentist-and-male-patient-having-his-teeth-examined.png'
 import img46 from '../../../images/what-age-should-a-child-go-to-the-dentist.jpeg'
 import img47 from '../../../images/shutterstock_273042527.jpg'
+import img51 from '../../../images/vecteezy_young-woman-having-teeth-examined-by-dentist-in-dental_5751755_457.jpg'
 
 const WhiteningGallery = () => {
   const whiteningData = [
@@ -66,6 +67,9 @@ const WhiteningGallery = () => {
     },
     {
       img:img47
+    },
+    {
+      img:img51
     },
   ]
   return (
