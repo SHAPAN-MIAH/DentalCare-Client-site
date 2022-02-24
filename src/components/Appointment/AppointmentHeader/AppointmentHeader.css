@@ -1,13 +1,23 @@
 .AppointmentHeader-container{
     margin-bottom: 50px;
 }
-.calendar-container h1, h6{
-    margin-bottom: 10px;
+.calendar-container h2{
+    margin-top: 30px;
 }
 .calendar-container h6{
     margin-bottom: 20px;
     color: rgb(85, 85, 85);
 }
+.calenders{
+    padding-right: 60px;
+}
+.calender{
+    padding-top: 0px;
+    width: auto;
+    height: 410px;
+    border-radius: 10px;
+}
+
 @media(max-width:768px){
     .AppointmentHeader-container{
         margin-bottom: 330px;
@@ -15,14 +25,17 @@
     .calendar-container{
         text-align: center;
         color: white;
-        margin-bottom: 50px;
+        /* margin-bottom: 10px; */
     }
     .calendar-container h1, h6{
         color: white !important;
     }
-    .calendar-container .calenders{
-        margin-left: 15%;
+    .calenders{
+        padding-right: 0px;
         margin-top: 50px;
-        
+    }
+    .calender{
+        width: auto;
+        height: auto;
     }
 }

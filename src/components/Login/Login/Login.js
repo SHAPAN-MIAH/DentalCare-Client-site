@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css'
 import { useHistory, useLocation, NavLink } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import LoginBg from '../../../images/flat-dental-care-concept-illustration_23-2148982240.jpg';

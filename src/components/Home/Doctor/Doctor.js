@@ -1,5 +1,4 @@
 import React from 'react';
-import img from '../../../images/5790-removebg.png'
 import dentist1 from '../../../images/1 (2).jpg'
 import dentist2 from '../../../images/2 (2).jpg'
 import dentist3 from '../../../images/3.jpg'
@@ -13,7 +12,7 @@ import dentist10 from '../../../images/depositphotos_148316093-stock-photo-beaut
 import dentist11 from '../../../images/1194147-female-dentist-menu-female-dentist-png-300_510_preview.png'
 import dentist12 from '../../../images/istockphoto-490512182-612x612.jpg'
 import borderBrige from '../../../images/title-icon.png'
-import DoctorDetail from '../DoctorDetail/DoctorDetail';
+// import DoctorDetail from '../DoctorDetail/DoctorDetail';
 import './Doctor.css'
 import '../DoctorDetail/DoctorDetail.css'
 import Carousel from 'react-grid-carousel'

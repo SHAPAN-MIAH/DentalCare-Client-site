@@ -1,9 +1,6 @@
 import React from 'react';
 import './Testimonials.css';
-import wilson from '../../../images/Ellipse 1.png';
-import ema from '../../../images/Ellipse 2.png';
-import aliza from '../../../images/Ellipse 3.png';
-import Testimonial from '../Testimonial/Testimonial';
+// import Testimonial from '../Testimonial/Testimonial';
 import Carousel from 'react-grid-carousel'
 import { useState, useEffect } from 'react';
 

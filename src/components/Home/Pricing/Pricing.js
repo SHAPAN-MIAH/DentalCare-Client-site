@@ -2,9 +2,6 @@ import React from 'react';
 import './Pricing.css'
 import borderBrige from '../../../images/title-icon.png'
 import dentistIcon1 from '../../../images/dentist-icon-16.jpg'
-import dentistIcon2 from '../../../images/dental-icon-png-9.jpg'
-import dentistIcon3 from '../../../images/images.png'
-import dentistIcon4 from '../../../images/Tooth-blue-icon.png'
 import dentistIcon5 from '../../../images/dental-icon-png-20.jpg'
 import PriceDetail from './../PriceDetail/PriceDetail';
 

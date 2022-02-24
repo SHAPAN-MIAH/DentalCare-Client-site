@@ -1,12 +1,12 @@
 .Appointment-container{
-    height: 820px;
+    height: 860px;
     position: relative;
     background-image: url('../../../images/Mask\ Group\ 2.png');
     background-size: cover;
     font-family: "Rajdhani", sans-serif;
 }
 .Appointment-container::after{
-    height: 820px;
+    height: 860px;
     content: '';
     position: absolute;
     top: 0;

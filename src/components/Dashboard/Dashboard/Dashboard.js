@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import 'react-calendar/dist/Calendar.css';
 import './Dashboard.css'
 import PropTypes from 'prop-types';
@@ -12,17 +12,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch
 } from "react-router-dom";
 import DashboardHome from './DashboardHome/DashboardHome';
 import logo from "../../../images/0001036-dental-logo-maker-dentist-Logo-02.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faUsers, faCog, faUserPlus, faArrowAltCircleDown, faHome, faFileAlt, faCalendarCheck, faUser, faFileCode, faFileArchive, faFileCsv, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faUsers, faUserPlus, faArrowAltCircleDown, faHome, faCalendarCheck, faUser, faComment } from '@fortawesome/free-solid-svg-icons';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import useAuth from './../../../Hooks/useAuth';
 import AdminRoute from './../../Login/AdminRoute/AdminRoute';

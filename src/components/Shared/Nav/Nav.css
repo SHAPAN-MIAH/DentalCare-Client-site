@@ -7,8 +7,17 @@
   font-size: 37px;
   color: rgb(116, 116, 116);
 }
+.navbar-nav{
+  margin-left: auto;
+}
 .nav-menu {
   padding: 0px 10px;
+}
+
+@media(max-width:768px){
+  .nav-menu {
+    margin-left: auto;
+  }
 }
 /* .nav-menu:hover .dropdown-menu {
   display: block;

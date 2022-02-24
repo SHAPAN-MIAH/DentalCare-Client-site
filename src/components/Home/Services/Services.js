@@ -1,17 +1,8 @@
 import React from 'react';
-// import fluoride from '../../../images/Fluoride.png';
-// import cavity from '../../../images/cavity.png';
 import teethWhitening from '../../../images/tooth white.png';
 import ServiceDtl from '../ServiceDtl/ServiceDtl';
 import borderBrige from '../../../images/title-icon.png'
-import dentistIcon1 from '../../../images/dentist-icon-16.jpg'
-import dentistIcon2 from '../../../images/dental-icon-png-9.jpg'
-import dentistIcon3 from '../../../images/images.png'
-import dentistIcon4 from '../../../images/Tooth-blue-icon.png'
-import dentistIcon5 from '../../../images/dental-icon-png-20.jpg'
 import './Services.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTooth } from '@fortawesome/free-solid-svg-icons';
 
 const serviceData = [
     {

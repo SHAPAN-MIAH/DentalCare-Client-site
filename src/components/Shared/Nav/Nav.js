@@ -1,17 +1,13 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import logo from "../../../images/0001036-dental-logo-maker-dentist-Logo-02.png";
 import './Nav.css'
 import useAuth from './../../../Hooks/useAuth';
 
 
-
 const Nav = () => {
   const {user, logOut} = useAuth()
   return (
     <>
-
       <nav className="navbar navbar-expand-lg navbar-light  pt-3 pb-0">
         <div className="container-fluid" style={{width: '1300px'}}>
           <a className="navbar-brand" href="#">
@@ -32,7 +28,7 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+            <ul className="navbar-nav mb-2 mb-lg-0">
               {/* <li className="nav-item nav-menu">
                 <a className="nav-link" aria-current="page" href="/">
                   

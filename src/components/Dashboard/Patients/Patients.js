@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AllPatientsDtl from '../AllPatientsDtl/AllPatientsDtl';
-import Sidebar from '../Sidebar/Sidebar';
 import "./Patients.css"
 
 const Patients = () => {
@@ -14,7 +13,6 @@ const Patients = () => {
     return (
         <div className="row">
             <div className="col-md-2">
-            <Sidebar></Sidebar>
             </div>
             <div className="col-md-9 patients-table">
             <h2>this is patients list</h2>
